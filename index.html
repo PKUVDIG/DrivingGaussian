@@ -40,7 +40,7 @@
 
 <div class="container">
 <div class="section"><img src="web/teaser-vis5.png" style="margin-bottom:2em;" width="100%" /> <!-- Add vertical space -->
-<p> DrivingGaussian achieves photorealistic rendering performance for surrounding dynamic autonomous driving scenes. Naive approaches [14, 48] either produce unpleasant artifacts and blurring in the large-scale background or struggle with reconstructing dynamic objects and detailed scene geometry. DrivingGaussian first introduces Composite Gaussian Splatting to efficiently represent static backgrounds and multiple dynamic objects in complex surrounding driving scenes. DrivingGaussian enables the high-quality synthesis of surrounding views across multi-camera and facilitates long-term dynamic scene reconstruction.</p>
+<p> DrivingGaussian achieves photorealistic rendering performance for surrounding dynamic autonomous driving scenes. Naive approaches [14, 48] either produce unpleasant artifacts and blurring in the large-scale background or struggle with reconstructing dynamic objects and detailed scene geometry. DrivingGaussian first introduces Composite Gaussian Splatting to efficiently represent static backgrounds and multiple dynamic objects in complex surrounding driving scenes. DrivingGaussian enables the high-quality synthesis of surrounding views across multi-camera and facilitates long-term dynamic scene reconstruction.</p>
 
 <h3>Abstract</h3>
 
@@ -69,12 +69,12 @@ across multiple tasks and application scenarios.
 <div class="section">
 <h3>Qualitative comparison on dynamic reconstruction. </h3>
 <img src="web/temporal-compare5.png" width="100%" />
-<p> We demonstrate the qualitative comparison results with our main competitors EmerNeRF and 3D-GS on dynamic reconstruction for 4D driving scenes of nuScenes. DrivingGaussian enables the
+<p> We demonstrate the qualitative comparison results with our main competitors EmerNeRF and 3D-GS on dynamic reconstruction for 4D driving scenes of nuScenes. DrivingGaussian enables the
 high-quality reconstruction of dynamic objects at high speed while maintaining temporal consistency.
 </p>
 
 <div class="section">
-<h3>Visualization comparison using different initialization methods on KITTI-360. </h3>
+<h3>Visualization comparison using different initialization methods on KITTI-360. </h3>
 <img src="web/lidar-compare2.png" width="100%" />
 <p>Compared to initialization with SfM
 points, using LiDAR prior allows Gaussians to restore more
@@ -83,7 +83,7 @@ accurate geometric structures in the scene.</p>
 <div class="section">
 <h3>Example of corner case simulation.</h3>
 <img src="web/corner case3.png" width="100%" />
-<p> Corner case simulation using DrivingGaussian: A man walking on the road suddenly
+<p> Corner case simulation using DrivingGaussian: A man walking on the road suddenly
 falls, and a car approaches ahead.</p>
 
 
@@ -119,7 +119,7 @@ NSG, EmerNeRF and 3D-GS on driving scenes reconstruction of nuScenes.</p>
 <div class="section">
 <h3>Qualitative comparison on the KITTI-360 dataset. </h3>
 <img src="web/kitti360-compare.png" width="100%" />	
-<p>We demonstrate the qualitative comparison results with our main competitors DNMP [8] and 3D-GS [4] on driving scenes reconstruction of KITTI-360.</p>
+<p>We demonstrate the qualitative comparison results with our main competitors DNMP [8] and 3D-GS [4] on driving scenes reconstruction of KITTI-360.</p>
 </div>
 
 
@@ -134,11 +134,11 @@ aids in obtaining better geometries and precise details.</p>
 <hr />
 <div class="section" >
 <h3>Rendering with or w/o the Incremental Static 3D
-Gaussians (IS3G).  &  Rendering with or w/o the Composite Dynamic Gaussian Graph (CDGG). </h3>
+Gaussians (IS3G).  &  Rendering with or w/o the Composite Dynamic Gaussian Graph (CDGG). </h3>
 <img src="web/static-effect3.png" width="48%"/>
 <img src="web/dynamic-effect3.png" width="48%"/>	
 <p>IS3G ensures good geometry and topological
-integrity for static backgrounds in large-scale driving scenes. CDGG enables the reconstruction of dynamic objects at arbitrary speeds in the driving scenes (e.g., vehicles, bicycles, and pedestrians).</p>
+integrity for static backgrounds in large-scale driving scenes. CDGG enables the reconstruction of dynamic objects at arbitrary speeds in the driving scenes (e.g., vehicles, bicycles, and pedestrians).</p>
 
 </div>	
 	
