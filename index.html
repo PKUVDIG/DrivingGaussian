@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-LWZJTCMLQ0"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LWZJTCMLQ0');
+</script><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-PY99WRQRT8"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PY99WRQRT8');
+</script><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>DrivingGaussian: Composite Gaussian Splatting for Surrounding Dynamic Autonomous Driving Scenes</title>
+	<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet" />
+	<link href="web/offcanvas.css" rel="stylesheet" />
+</head>
+<body>
+<div class="jumbotron jumbotron-fluid">
+<div class="container">
+<h2>DrivingGaussian: Composite Gaussian Splatting for Surrounding Dynamic Autonomous Driving Scenes</h2>
+
+<!-- <h3>ICCV 2023</h3>  -->
+<hr />
+<p class="authors">Xiaoyu Zhou<sup>1</sup>, Zhiwei Lin<sup>1</sup>, Xiaojun Shan<sup>1</sup>, Yongtao Wang<sup>1</sup>, Deqing Sun<sup>2</sup>, Ming-Hsuan Yang<sup>3</sup></p>
+
+<p class="author-affiliation"><sup>1</sup>Wangxuan Institute of Computer Technology, Peking Univerisity, <sup>2</sup> Google Research, <sup>3</sup>University of California, Merced</p>
+
+<div aria-label="Top menu" class="btn-group" role="group"><a class="btn btn-primary" href="materialistic_camera_ready.pdf">Paper</a></div>
+
+<div aria-label="Top menu" class="btn-group" role="group"><a class="btn btn-primary" href="materialistic_supplementary.pdf">Supplementary</a></div>
+
+<div aria-label="Top menu" class="btn-group" role="group"><a class="btn btn-primary disabled" href="">Code (Coming soon)</a></div>
+
+
+</div>
+</div>
+
+<div class="container">
+<div class="section"><img src="web/teaser-vis5.png" style="margin-bottom:2em;" width="100%" /> <!-- Add vertical space -->
+<p> DrivingGaussian achieves photorealistic rendering performance for surrounding dynamic autonomous driving scenes. Naive approaches [14, 48] either produce unpleasant artifacts and blurring in the large-scale background or struggle with reconstructing dynamic objects and detailed scene geometry. DrivingGaussian first introduces Composite Gaussian Splatting to efficiently represent static backgrounds and multiple dynamic objects in complex surrounding driving scenes. DrivingGaussian enables the high-quality synthesis of surrounding views across multi-camera and facilitates long-term dynamic scene reconstruction.</p>
+
+<h3>Abstract</h3>
+
+<!-- <p>Recent novel view synthesis methods obtain promising results for relatively small scenes, e.g., indoor environments and scenes with a few objects, but tend to fail for unbounded outdoor scenes with a single image as input. In this paper, we introduce SAMPLING, a Scene-adaptive Hierarchical Multiplane Images Representation for Novel View Synthesis from a Single Image based on improved multiplane images (MPI). Observing that depth distribution varies significantly for unbounded outdoor scenes, we employ an adaptive-bins strategy for MPI to arrange planes in accordance with each scene image. To represent intricate geometry and multi-scale details, we further introduce a hierarchical refinement branch, which results in high-quality synthesized novel views. Our method demonstrates considerable performance gains in synthesizing large-scale unbounded outdoor scenes using a single image on the KITTI dataset and generalizes well to the unseen Tanks and Temples dataset. The code and models will be made public.</p> -->
+<p>We present DrivingGaussian, an efficient and effective framework for surrounding dynamic autonomous driving scenes. For complex scenes with moving objects, we first sequentially and progressively model the static background of the entire scene with incremental static 3D Gaussians. We then leverage a composite dynamic Gaussian graph to handle multiple moving objects, individually reconstructing each object and restoring their accurate positions and occlusion relationships within the scene. We further use a LiDAR prior for Gaussian Splatting to reconstruct scenes with greater details and maintain panoramic consistency. DrivingGaussian outperforms existing methods in driving scene reconstruction and enables photorealistic surround-view synthesis with high-fidelity and multi-camera consistency. The source code and trained models will be released. </p>
+</div>
+<hr /></div>
+
+<div class="container">
+<div class="section"><img src="web/overview-final4.png" style="margin-bottom:2em;" width="100%" /> <!-- Add vertical space -->
+
+<h3>Overall pipeline of our method. </h3>
+
+<!-- <p>Recent novel view synthesis methods obtain promising results for relatively small scenes, e.g., indoor environments and scenes with a few objects, but tend to fail for unbounded outdoor scenes with a single image as input. In this paper, we introduce SAMPLING, a Scene-adaptive Hierarchical Multiplane Images Representation for Novel View Synthesis from a Single Image based on improved multiplane images (MPI). Observing that depth distribution varies significantly for unbounded outdoor scenes, we employ an adaptive-bins strategy for MPI to arrange planes in accordance with each scene image. To represent intricate geometry and multi-scale details, we further introduce a hierarchical refinement branch, which results in high-quality synthesized novel views. Our method demonstrates considerable performance gains in synthesizing large-scale unbounded outdoor scenes using a single image on the KITTI dataset and generalizes well to the unseen Tanks and Temples dataset. The code and models will be made public.</p> -->
+<p><b>Left:</b> DrivingGaussian takes sequential data from multi-sensor, including multi-camera images
+and LiDAR. <b>Middle:</b> To represent the large-scale dynamic driving scenes, we propose Composite Gaussian Splatting, which consists of
+two components. The first part incrementally reconstructs the extensive static background, while the second constructs multiple dynamic
+objects with a Gaussian graph and dynamically integrates them into the scene. <b>Right:</b> DrivingGaussian demonstrates good performance
+across multiple tasks and application scenarios.
+</div>
+<hr /></div>	
+
+<div class="container">
+
+
+<div class="section">
+<h3>Qualitative comparison on dynamic reconstruction. </h3>
+<img src="web/temporal-compare5.png" width="100%" />
+<p> We demonstrate the qualitative comparison results with our main competitors EmerNeRF and 3D-GS on dynamic reconstruction for 4D driving scenes of nuScenes. DrivingGaussian enables the
+high-quality reconstruction of dynamic objects at high speed while maintaining temporal consistency.
+</p>
+
+<div class="section">
+<h3>Visualization comparison using different initialization methods on KITTI-360. </h3>
+<img src="web/lidar-compare2.png" width="100%" />
+<p>Compared to initialization with SfM
+points, using LiDAR prior allows Gaussians to restore more
+accurate geometric structures in the scene.</p>
+<hr />
+<div class="section">
+<h3>Example of corner case simulation.</h3>
+<img src="web/corner case3.png" width="100%" />
+<p> Corner case simulation using DrivingGaussian: A man walking on the road suddenly
+falls, and a car approaches ahead.</p>
+
+
+<hr />
+
+
+<div class="section">
+	
+<h3>Visualization of surrounding multi-camera views in
+nuScenes dataset. </h3>
+
+
+<img src="web/camera2.png" width="100%" />
+<p>The surrounding views have small overlaps
+among multi-camera but large gaps across time.</p>
+
+<!-- <div class="section">
+<h3>Qualitative results on KITTI of outdoor scenes.</h3>
+<img src="web/outdoor-sup2.png" width="100%" />	
+
+<p>Each compared group <b>C</b> consists of two synthesized views of outdoor scenes in the KITTI dataset, with the novel views synthesized by MINE <b>(Top row)</b> and the images generated by our method <b>(Bottom row)</b> at the same viewpoint. We highlight the challenging areas and hard cases in these outdoor scenes.</p>
+ -->
+
+<hr />
+<div class="section">
+<h3>Qualitative comparison on the nuScenes dataset. </h3>
+<img src="web/nuscenes-compare.png" width="100%" />	
+<p>We demonstrate the qualitative comparison results with our main competitors
+NSG, EmerNeRF and 3D-GS on driving scenes reconstruction of nuScenes.</p>
+</div>
+
+<hr />
+<div class="section">
+<h3>Qualitative comparison on the KITTI-360 dataset. </h3>
+<img src="web/kitti360-compare.png" width="100%" />	
+<p>We demonstrate the qualitative comparison results with our main competitors DNMP [8] and 3D-GS [4] on driving scenes reconstruction of KITTI-360.</p>
+</div>
+
+
+<hr />
+<div class="section">
+<h3>Qualitative comparison with different initialization
+methods for 3D Gaussians. </h3>
+<img src="web/with lidar.png" width="100%" />	
+<p>The LiDAR prior for 3D Gaussians
+aids in obtaining better geometries and precise details.</p>
+</div>
+<hr />
+<div class="section" >
+<h3>Rendering with or w/o the Incremental Static 3D
+Gaussians (IS3G).  &  Rendering with or w/o the Composite Dynamic Gaussian Graph (CDGG). </h3>
+<img src="web/static-effect3.png" width="48%"/>
+<img src="web/dynamic-effect3.png" width="48%"/>	
+<p>IS3G ensures good geometry and topological
+integrity for static backgrounds in large-scale driving scenes. CDGG enables the reconstruction of dynamic objects at arbitrary speeds in the driving scenes (e.g., vehicles, bicycles, and pedestrians).</p>
+
+</div>	
+	
+<!-- <hr />
+<div class="section">
+<h3>Results on grayscale images</h3>
+
+<p>We further evaluate our method on grayscale images and see that if textures are clearly distinct, our method can select the relevant regions despite the lack of color, showing it also considers texture to make its selection.</p>
+<img src="web/img/grayscale_results.png" width="100%" /></div>
+
+<hr />
+
+<div class="section row align-items-center">
+<h3>Selection consistency</h3>
+
+<p>The method produces consistent segmentation masks for different pixel selections within image regions that belong to the same material. In the query image, we show 5 different pixel selections (marked in different colors) with the resulting masks overlayed with the respective color.</p>
+<img src="web/img/consistency_fullwidth.png" width="100%" /></div>
+<hr />
+
+<div class="section row align-items-center">
+<h3>Robustness to lighting variation</h3>
+
+<p>Our method is robust to lighting variations including specularity and shadows. The first row shows all the input images. There is a query selected in the first image with a selection marked with a red square. The selected pixel is at the center of the red square. The query embedding at the selection at the red square is used to select materials in subsequent images. The results show the robustness of our method to different lighting scenarios.</p>
+<img src="web/img/lighting_analysis.png" width="100%" /></div>
+
+<div class="section row align-items-center">
+<p>We also present the same experiment to demonstrate the robustness of our method to different lighting scenarios using the Multi-Illumination Dataset by Murmann et al.</p>
+<img src="web/img/murmann_dataset_lighting_results.png" width="100%" /></div>
+
+<hr />
+<div class="section">
+<h3>Analysis: Albedo analysis</h3>
+
+<p>To analyze the behavior of the model with respect to changing albedo, we change the hue and saturation value on a diffuse sphere. The hue is sampled in range [0, 2*pi] and saturation is sampled in [0, 1]. We select the central pixel on a grid of spheres with varying albedo. The scores are thresholded at 0.5 which results in selections of regions in spheres with neighboring albedo. As expected, our model selects sphere with colors closer to the selected one first. As we vary the threshold, the selection becomes limited to the central sphere (higher threshold &gt; 0.9), or extends to further spheres (lower threshold).</p>
+<img src="web/img/albedo_analysis.png" width="100%" />
+<hr /></div>
+
+<div class="section">
+<h3>Analysis: Blending between materials</h3>
+
+<p>We now evaluate the sensitivity of our model to gradual material changes. To do so we render nine spheres covered by a blend of two different materials, a stone wall and roof tiles. We use the Blender &quot;shader mix&quot; node to interpolate between the SVBRDFs and apply a different mixing factor for each sphere, this mixing is shown below. Where 1.0 means 100% wall and 0.0 means 100% tiles.</p>
+
+<div class="text-center"><img src="web/img/test_checker_interop.png" width="50%" /></div>
+
+<p>We then proceed to select similar materials based on a query pixel on each extreme case. As we can see our method selects materials that are close to the query but not exactly similar and discriminates well when the mix of materials is visually far from the query.</p>
+<img src="web/img/brdf_blend.png" width="100%" />
+<hr /></div> -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script> <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script></div>
+</div>
+</body>
+</html>
