@@ -140,59 +140,190 @@ Gaussians (IS3G).  &  Rendering with or w/o the Composite Dynamic Gaussian Graph
 <p>IS3G ensures good geometry and topological
 integrity for static backgrounds in large-scale driving scenes. CDGG enables the reconstruction of dynamic objects at arbitrary speeds in the driving scenes (e.g., vehicles, bicycles, and pedestrians).</p>
 
-</div>	
-	
-<!-- <hr />
-<div class="section">
-<h3>Results on grayscale images</h3>
 
-<p>We further evaluate our method on grayscale images and see that if textures are clearly distinct, our method can select the relevant regions despite the lack of color, showing it also considers texture to make its selection.</p>
-<img src="web/img/grayscale_results.png" width="100%" /></div>
-
-<hr />
-
-<div class="section row align-items-center">
-<h3>Selection consistency</h3>
-
-<p>The method produces consistent segmentation masks for different pixel selections within image regions that belong to the same material. In the query image, we show 5 different pixel selections (marked in different colors) with the resulting masks overlayed with the respective color.</p>
-<img src="web/img/consistency_fullwidth.png" width="100%" /></div>
-<hr />
-
-<div class="section row align-items-center">
-<h3>Robustness to lighting variation</h3>
-
-<p>Our method is robust to lighting variations including specularity and shadows. The first row shows all the input images. There is a query selected in the first image with a selection marked with a red square. The selected pixel is at the center of the red square. The query embedding at the selection at the red square is used to select materials in subsequent images. The results show the robustness of our method to different lighting scenarios.</p>
-<img src="web/img/lighting_analysis.png" width="100%" /></div>
-
-<div class="section row align-items-center">
-<p>We also present the same experiment to demonstrate the robustness of our method to different lighting scenarios using the Multi-Illumination Dataset by Murmann et al.</p>
-<img src="web/img/murmann_dataset_lighting_results.png" width="100%" /></div>
-
-<hr />
-<div class="section">
-<h3>Analysis: Albedo analysis</h3>
-
-<p>To analyze the behavior of the model with respect to changing albedo, we change the hue and saturation value on a diffuse sphere. The hue is sampled in range [0, 2*pi] and saturation is sampled in [0, 1]. We select the central pixel on a grid of spheres with varying albedo. The scores are thresholded at 0.5 which results in selections of regions in spheres with neighboring albedo. As expected, our model selects sphere with colors closer to the selected one first. As we vary the threshold, the selection becomes limited to the central sphere (higher threshold &gt; 0.9), or extends to further spheres (lower threshold).</p>
-<img src="web/img/albedo_analysis.png" width="100%" />
-<hr /></div>
-
-<div class="section">
-<h3>Analysis: Blending between materials</h3>
-
-<p>We now evaluate the sensitivity of our model to gradual material changes. To do so we render nine spheres covered by a blend of two different materials, a stone wall and roof tiles. We use the Blender &quot;shader mix&quot; node to interpolate between the SVBRDFs and apply a different mixing factor for each sphere, this mixing is shown below. Where 1.0 means 100% wall and 0.0 means 100% tiles.</p>
-
-<div class="text-center"><img src="web/img/test_checker_interop.png" width="50%" /></div>
-
-<p>We then proceed to select similar materials based on a query pixel on each extreme case. As we can see our method selects materials that are close to the query but not exactly similar and discriminates well when the mix of materials is visually far from the query.</p>
-<img src="web/img/brdf_blend.png" width="100%" />
-<hr /></div> -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script> <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script></div>
 </div>
+ <div class="section" >
+
+   <section id="results" class="">
+      <div class="container">
+         <div class="row">
+            
+               <h2 class="section-title-tc">Surrounding Views</h2>
+		 <div class="d-md-none text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
+               <div width="100%">
+                     <video class="d-md-none" width="100%" playsinline="" autoplay="" muted="" controls="" loop=""
+                        src="./videos/slider/3DGS-ours-001.mp4"></video>
+		      <h4>3DGS VS Ours</h4>
+                  </div>
+               <hr>
+	</div> 
+	</div>
+
+        
+      </div>
+      </div>
+   </section>
+	
+<div class="section" >
+
+   <section id="results" class="">
+      <div class="container">
+         <div class="row">
+            
+               <h2 class="section-title-tc">Results</h2>
+               
+               <hr>
+               
+
+               <!-- Phone -->
+
+               <div class="d-md-none text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  
+
+		    
+		       
+                  <div width="100%">
+                     <video class="d-md-none" width="100%" playsinline="" autoplay="" muted="" controls="" loop=""
+                        src="./videos/slider/3DGS-ours-001.mp4"></video>
+		      <h4>3DGS VS Ours</h4>
+                  </div>
+
+
+
+                   <div width="100%">
+                     <video class="d-md-none" width="100%" playsinline="" autoplay="" muted="" controls="" loop=""
+                        src="./videos/slider/emernerf-ours-01.mp4"></video>
+			  <h4>EmerNeRF VS Ours</h4>
+                  </div> 
+                  <br>
+
+            
+
+                  
+
+
+               </div>
+
+               <!-- Laptop -->
+		
+               <div class="d-none d-md-block text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                
+		
+		
+                
+                
+		       
+		<div style="display: flex;">
+                     <div style="flex: 1; box-sizing: border-box;">
+                        <!-- Content for the first div -->
+                        <div width="100%">
+                           <video class="d-none d-md-block" width="50%" style="height: 0px;" autoplay="" muted=""
+                              controls="" loop="" id="nvr388" src="./videos/slider/3DGS-ours-001.mp4"
+                              onplay="resizeAndPlay(this)"></video>
+                           <canvas class="d-none d-md-block" width="426" height="240" id="nvr388Merge"></canvas>
+                         <h4>3DGS VS Ours</h4> 
+			</div>
+                     </div>
+                     <div style="flex: 1; box-sizing: border-box; margin-left: 10px;">
+                        <!-- Content for the second div -->
+                        <div width="100%">
+                           <video class="d-none d-md-block" width="50%" style="height: 0px;" autoplay="" muted=""
+                              controls="" loop="" id="nvr392" src="./videos/slider/emernerf-ours-01.mp4"
+                              onplay="resizeAndPlay(this)"></video>
+                           <canvas class="d-none d-md-block" width="426" height="240" id="nvr392Merge"></canvas>
+                         	<h4>EmerNeRF VS Ours</h4> 
+			</div>
+                     </div>
+                  </div>
+                  <br>
+
+	         
+
+                  
+
+                  
+               </div>
+               <br>
+               <hr><br>
+
+               
+            </div>
+        
+      </div>
+      </div>
+   </section>
+
+   <!-- <section id="code" class="">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-10 mx-auto">
+               <h2 class="section-title-tc">
+                  <a class="publink" target="_blank" href="https://github.com/taconite/arah-release"
+                     style="text-decoration: none">Code <i class="fa fa-github"></i></a>
+               </h2>
+            </div>
+         </div>
+      </div>
+   </section> -->
+
+   <!-- <section id="poster" class="">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-10 mx-auto">
+               <h2 class="section-title-tc">Poster</h2>
+               <br>
+               <div class="img-wide text-center">
+                  <p><img class="img-fluid" alt="teaser" src="images/poster.png" width=1000 href="images/poster.png"></p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section> -->
+
+
+<!--    <section id="pubs" class="">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-10 mx-auto">
+               <h2 class="section-title-tc">Preprint</h2>
+               <br>
+               Zhiyin Qian, Shaofei Wang, Marko Mihajlovic, Andreas Geiger, Siyu Tang<br>
+               <a class="publink" target="_blank" href="https://arxiv.org/abs/2312.09228"><b>
+                     3DGS-Avatar: Animatable Avatars via Deformable 3D Gaussian Splatting</b><br></a>
+               arXiv preprint. 2023
+               <br><br>
+               <pre style="display: block; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px">
+@article{qian20233dgsavatar,
+   title={3DGS-Avatar: Animatable Avatars via Deformable 3D Gaussian Splatting}, 
+   author={Zhiyin Qian and Shaofei Wang and Marko Mihajlovic and Andreas Geiger and Siyu Tang},
+   journal={arXiv preprint arXiv:2312.09228},
+   year={2023},
+}
+               </pre>
+            </div>
+         </div>
+      </div>
+   </section> -->
+   <!-- Footer -->
+   <footer class="py-5 bg-dark">
+      <div class="container">
+         <p class="m-0 text-center text-white">Copyright &copy; VDIG 2023</p>
+      </div>
+      <!-- /.container -->
+   </footer>
+   <!-- Bootstrap core JavaScript -->
+   <script src="vendor/jquery/jquery.min.js"></script>
+   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <!-- Plugin JavaScript -->
+   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+   <!-- Custom JavaScript for this theme -->
+   <script src="js/scrolling-nav.js"></script>
+   <!-- From ResField -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="./js/index.js"></script>
 </body>
+
 </html>
